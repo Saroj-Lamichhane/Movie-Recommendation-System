@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us - MoRe System</title>
+	<!-- Include Tailwind CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #ccccff; font-family: monospace;">
+	<div class="max-w-lg mx-auto my-10">
+		<h1 class="text-3xl font-bold mb-5">Contact Us</h1>
+		<form action="{{ url_for('submit_contact_form') }}" method="POST">
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="name">Name</label>
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="name" id="name" placeholder="Enter your name">
+			</div>
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="email">Email</label>
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" name="email" id="email" placeholder="Enter your email address">
+			</div>
+			<div class="mb-4">
+				<label class="block text-gray-700 font-bold mb-2" for="subject">Subject</label>
+				<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="subject" id="subject" placeholder="Enter the subject of your message">
+			</div>
+			<div class="mb-6">
+				<label class="block text-gray-700 font-bold mb-2" for="message">Message</label>
+				<textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="message" id="message" rows="5" placeholder="Enter your message"></textarea>
+			</div>
+			<div class="flex justify-end">
+				<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+					Send Message
+				</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

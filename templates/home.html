@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MoRe System</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Auto Complete -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  <script type="text/javascript">
+    var films = {{suggestions|tojson}};
+  </script>
+
+  
+
+</head>
+
+<body id="content" style="font-family: monospace;">
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#">
+        <img src="https://img.icons8.com/avantgarde/256/documentary.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        MoRe System
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="{{ url_for('contact') }}">Contact Us</a>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+  
+
+	<div class="ml-container" style="display: block;">
+
+    <div>
+      <img src="/static/img/001.jpg" alt="" srcset="" class="banner-image1">
+    </div>
+    <center><h1>What do you want to watch today ?</h1></center>
+    <div class="form-group shadow-textarea" style="margin-top: 30px;text-align: center;color: white;">
+        <input type="text" name="movie" class="movie form-control" id="autoComplete" autocomplete="off" placeholder="Enter the Movie Name" style="background-color: #ffffff;border-color:black;width: 60%;color: #181818" required="required" />
+        <br>
+    </div>
+
+    <div class="form-group" style="text-align: center;">
+      <button class="btn btn-primary btn-block movie-button" style="background-color: #1a1aff;text-align: center;border-color: #1a1aff;width:120px;" disabled="true" >Enter</button><br><br>
+    </div>
+	</div>
+
+  <div id="loader" class="text-center">
+  </div>
+  
+  <div class="fail">
+    <center><h3>Sorry! The movie you requested is not in our database. 
+    Please check the spelling or try with other movies!</h3></center>
+  </div>
+
+	<div class="results">
+    <center>
+      <h2 id="name" class="text-uppercase"></h2>
+    </center>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='autocomplete.js')}}"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>
+
+</body>
+</html>
